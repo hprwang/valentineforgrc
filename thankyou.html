@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise! 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle, #ff4d6d, #ff69b4);
+      padding: 20px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      margin-top: 50px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 45px;
+      font-family: 'Pacifico', cursive;
+      color: #ffffff;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      animation: bounce 1.5s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(10px);
+      }
+    }
+
+    .gif-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+    }
+
+    img {
+      width: 360px;
+      border-radius: 15px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      animation: float 3s infinite alternate ease-in-out;
+    }
+
+    img:hover {
+      transform: rotate(5deg) scale(1.1);
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    .btn {
+      padding: 15px 35px;
+      font-size: 22px;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-family: 'Pacifico', cursive;
+      background-color: #ff3838;
+      color: white;
+      box-shadow: 0px 4px 10px rgba(255, 56, 56, 0.7);
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #ff1e1e;
+      box-shadow: 0px 4px 20px rgba(255, 56, 56, 1);
+      transform: scale(1.1);
+    }
+    .heart {
+    position: absolute;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatUp 5s infinite linear;
+  }
+
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh);
+      opacity: 0;
+    }
+  }
+  audio {
+        display: none;
+    }
+  </style>
+  <script>
+      function createHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.innerHTML = "❤️";
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 500);
+  }  
+  window.onload = createHearts;
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🫰 Thanks for Saying YES! Fish & Chips on Me Next Time, GRC! 🫰</h1>
+    <div class="gif-container">
+      <img src="https://media.tenor.com/lCKwsD2OW1kAAAAi/happy-cat-happy-happy-cat.gif" alt="Happy Cat GIF">
+    </div>
+
+    <button class="btn" onclick="location.href='special.html'">Click for Surprise ✅</button>
+    </div>
+    <audio controls autoplay loop>
+      <source src="happi happi happi.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>

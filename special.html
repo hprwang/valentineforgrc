@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background-color: #ff4d6d;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            margin-top: 80px;
+        }
+
+        .quote-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            width: 60%;
+            min-height: 100px;
+            color: black;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-family: 'Pacifico', cursive;
+            font-size: 22px;
+            cursor: pointer;
+            border: none;
+            border-radius: 15px;
+            background-color: #d6336c;
+            color: white;
+            margin-top: 20px;
+            transition: 0.3s ease;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #b02554;
+            transform: scale(1.05);
+        }
+
+        .pop-effect {
+            animation: pop 0.3s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .animated-text {
+            font-size: 2.5em;
+            font-family: 'Pacifico', cursive;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeIn 2s ease-out forwards;
+            color: #ffe6ea;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            animation: floatUp 5s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        const quotes = [
+            "Are you French? Because Eiffel for you! 🗼",
+            "You're my national treasure! 😏",
+            "Show me de Wae 2 your HEART! 💖",
+            "You're the SZA to my Kendrick! 🎶",
+            "You rock my world! 🪨",
+            "Will you be my fallontine? 🥺",
+            "Did you just fart? Because you blew me away! 💨",
+            "I love you like Kanye loves himself! 🐻",
+            "Do you have a band aid bc i scraped my knee fallin 4 u! 🤕",
+            "Love is like a fart. If you have to force it, it's probably crap. 💩",
+            "Roses are red, bacon is red, poems are hard… bacon. 🥓",
+            "You’re like a Valentine’s Day card—cheap, cheesy, and makes me roll my eyes, but I still kinda like you. 😜",
+            "You must be a parking ticket, because you’ve got ‘FINE’ written all over you… but also, you’re kinda annoying. 😒",
+            "If you were a vegetable, you’d be a cute-cumber… and if I were a vegetable, I’d be asleep on the couch. 😴",
+        ];
+        
+        function newQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quoteBox = document.getElementById("quote");
+            quoteBox.innerText = quotes[randomIndex];
+            quoteBox.classList.add("pop-effect");
+            setTimeout(() => {
+                quoteBox.classList.remove("pop-effect");
+            }, 300);
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }, 500);
+        }
+
+        window.onload = createHearts;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="animated-text">🫰 Roses are red, violets are blue, I made this Valentine’s gift just for you! 😶‍🌫️</div>
+        <div class="quote-box" id="quote">Click below for something special! 🧙🏼</div>
+        <br>
+        <button class="btn" onclick="newQuote()">Click for More ✨</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle, #e44092, #ec4096);
+      padding: 20px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      margin-top: 50px;
+
+    }
+
+    h1 {
+      font-size: 45px;
+      font-family: 'Pacifico', cursive;
+      color: #ffffff;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+      animation: bounce 1.5s infinite alternate;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(10px);
+      }
+    }
+
+    .btn {
+      padding: 15px 35px;
+      font-size: 22px;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      margin: 10px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .yes {
+      font-family: 'Pacifico', cursive;
+      background-color: #ff3838;
+      color: white;
+      box-shadow: 0px 4px 10px rgba(255, 56, 56, 0.7);
+    }
+
+    .yes:hover {
+      background-color: #ff1e1e;
+      box-shadow: 0px 4px 20px rgba(255, 56, 56, 1);
+      transform: scale(1.1);
+    }
+    .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    }
+
+    .image-button-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .no {
+      font-family: 'Pacifico', cursive;
+      background-color: #ff3838;
+      color: white;
+      position: relative;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    img {
+      width: 250px;
+      margin: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      animation: float 3s infinite alternate ease-in-out;
+    }
+
+    img:hover {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0px); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(5px); }
+    }
+    .heart {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatUpAndFade 5s infinite linear;
+  
+  }
+
+  @keyframes floatUpAndFade {
+    0% {
+      transform: translateY(100vh);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh);
+      opacity: 0;
+    }
+  }
+  </style>
+  <script>
+   function moveButton() {
+      let button = document.getElementById("noBtn");
+      let x = Math.random() * 200 - 100;
+      let y = Math.random() * 200 - 100;
+      button.style.transform = `translate(${x}px, ${y}px)`;
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+      noBtn.style.animation = "shake 0.2s ease-in-out";
+      
+      setTimeout(() => {
+        noBtn.style.animation = "";
+      }, 300);
+    }
+  </script>
+  <script>
+          function createHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.innerHTML = "❤️";
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 500);
+  }
+
+  window.onload = createHearts;
+  </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>💘 Will You Be My Valentine? 💘</h1>
+        <div class="image-container">
+            <div class="image-button-pair">
+                <img src="https://i.pinimg.com/736x/f3/f0/dd/f3f0ddc76b189f314df89b2d6e03bc5e.jpg" alt="Cute Valentine">
+                <button class="btn yes" onclick="location.href='thankyou.html'">YES 😍</button>
+            </div>
+            <div class="image-button-pair">
+                <img src="https://i.pinimg.com/736x/59/8b/1c/598b1c4e5b09e5ac93a3d5ecba1ec592.jpg" alt="Cute Valentine">
+                <button class="btn no" id="noBtn" onmouseover="moveButton()">NO 😭</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>
